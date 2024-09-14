@@ -5,16 +5,19 @@
   "events": [
     {
       "date": "2024-09-17", 
-      "title": "Jogo do Fluminence X Átletico-mg as 19:00h" 
+      "title": "Jogo do Fluminense X Atlético-MG às 19:00h",
+      "color": "#0339fc"
     },
     { 
       "date": "2024-09-18",
-      "title": "Jogo do Flamengo X Peñarol as 19:00h" 
+      "title": "Jogo do Flamengo X Peñarol às 19:00h",
+      "color": "orange"
     },
     {
       "title": "Festa Junina",
       "start": "2024-09-16",
-      "end": "2024-09-20"
+      "end": "2024-09-20",
+      "color": "#fc0f03"
     }
   ]
 }

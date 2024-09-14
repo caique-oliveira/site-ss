@@ -10,6 +10,7 @@ interface Event {
   title: string;
   start?: string;  // Data de início para eventos de múltiplos dias
   end?: string;    // Data de término para eventos de múltiplos dias
+  color?: string;  // Nova propriedade para cor do evento
 }
 
 const CalendarWithEvents: React.FC = () => {
@@ -43,6 +44,8 @@ const CalendarWithEvents: React.FC = () => {
           title: event.title,
           start: event.start || event.date, // Usa `start` se disponível, caso contrário usa `date`
           end: event.end,
+          backgroundColor: event.color, // Adiciona a cor de fundo ao evento
+          borderColor: event.color, // Adiciona a cor da borda ao evento
         })),
         locale: ptBR,
         aspectRatio: 2, // Ajuste conforme necessário para seu layout

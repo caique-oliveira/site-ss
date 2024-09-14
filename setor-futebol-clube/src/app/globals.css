@@ -107,7 +107,6 @@ a {
 
 .fc-h-event .fc-event-title {
   white-space: break-spaces!important;
-  background: #feb445;
   border: none;
   font-weight: bold;
 }
@@ -153,9 +152,6 @@ button.fc-today-button.fc-button.fc-button-primary {
 }
 a.fc-event.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygrid-block-event.fc-h-event {
   border: #feb445;
-}
-.fc-h-event .fc-event-title-container {
-  background: #feb445;
 }
 /* Responsividade para telas menores */
 @media (max-width: 768px) {

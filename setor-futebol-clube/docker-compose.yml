@@ -1,0 +1,14 @@
+services:
+  sfc-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sfc_frontend
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "80:3000"
+      - "3001:3001"
+    privileged: true
+    command: >
+      sh -c "npm install && npm run dev && npx json-server --watch db.json --port 3001"

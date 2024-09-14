@@ -1,0 +1,21 @@
+{
+  "produtos": [
+    { "id": 1, "imagem": "/assets/images/partida.PNG" }
+  ],
+  "events": [
+    {
+      "date": "2024-09-17", 
+      "title": "Jogo do Fluminence X Átletico-mg as 19:00h" 
+    },
+    { 
+      "date": "2024-09-18",
+      "title": "Jogo do Flamengo X Peñarol as 19:00h" 
+    },
+    {
+      "title": "Festa Junina",
+      "start": "2024-09-16",
+      "end": "2024-09-20"
+    }
+  ]
+}
+

@@ -98,7 +98,7 @@ export const TitleParceiros = styled.h1`
 
 export const Container = styled.div`
   position: relative; // Para posicionar as setas dentro do container
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 15px;
 `;
@@ -125,7 +125,7 @@ export const ArticleItem = styled.li<ArticleItemProps>`
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: ${({ isLeft }) => (isLeft ? '470px' : '300px')};
+  width: ${({ isLeft }) => (isLeft ? '100%' : '900px')};
   background-image: ${({ urlToImage }) => (urlToImage ? `url(${urlToImage})` : 'none')};
   background-size: cover;
   background-position: center;

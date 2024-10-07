@@ -1,20 +1,24 @@
-import Partida from "../components/partida/partida";
-import Carousel from "../components/carousel/carousel";
-import NewsFeed from "../components/NewsFeed/NewsFeed";
-import Institucional from "../components/Institucional/Institucional"
-import CalendarWithEvents from "../components/Calendar/CalendarWithEvents";
-import Parceiros from "../components/parceiros/parceiros"
+import Carousel from "../Components/Carousel/Carousel";
+import NewsFeed from "../Components/NewsFeed/NewsFeed";
+import Institucional from "../Components/Institucional/Institucional"
+import TitleCalendar from "../Components/TitleCalendar";
+import CalendarWithEvents from "../Components/Calendar/CalendarWithEvents";
+import ClassificationTable from "../Components/ClassificationTable/ClassificationTable";
+import Partners from "../Components/Partners/Partners"
 
-export default function Home() {
+const Home = async () => {
+      
     return (
         <>
-            <Partida />
             <Carousel />
-            <NewsFeed />
-            <CalendarWithEvents />
             <Institucional />
-            <Parceiros />
+            <NewsFeed />
+            <TitleCalendar />
+            <CalendarWithEvents />
+            <ClassificationTable />
+            <Partners />
         </>
     );
   }
-  
+
+export default Home;

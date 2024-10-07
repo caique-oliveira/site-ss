@@ -1,16 +1,27 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 interface ArticleItemProps {
   isLeft: boolean;
   urlToImage?: string;
 }
 
+const slideUp = keyframes`
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
 export const TitleParceiros = styled.h1`
   position: relative;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 15px;
-  color: #feb445;
+  color: #e8cf29;
   padding: 0 20px;
   font-weight: 600;
   font-style: italic;
@@ -22,7 +33,7 @@ export const TitleParceiros = styled.h1`
     height: 2px;
     top: 50%;
     left: 20%;
-    background: #feb445;
+    background: #e8cf29;
     transform: translateY(-50%);
     animation: pulse-border 1500ms ease-out infinite;
 
@@ -55,7 +66,7 @@ export const TitleParceiros = styled.h1`
     height: 2px;
     top: 50%;
     right: 20%;
-    background: #feb445;
+    background: #e8cf29;
     transform: translateY(-50%);
     animation: pulse-border 1500ms ease-out infinite;
 
@@ -80,7 +91,7 @@ export const TitleParceiros = styled.h1`
     }            
   }
 
-  @media (max-width: 865px) {
+  @media (max-width: 768px) {
     font-size: 1.5rem; 
   }
   @media (max-width: 768px) {
@@ -97,18 +108,23 @@ export const TitleParceiros = styled.h1`
 `;
 
 export const Container = styled.div`
-  position: relative; // Para posicionar as setas dentro do container
+  position: relative;
   width: 100%;
   margin: 0 auto;
   margin-top: 15px;
+
+  &.slide-up {
+    animation: ${slideUp} 0.6s ease-out forwards; // Animação para o Container
+  }
 `;
 
 export const ArticleList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
   display: flex;
   gap: 20px; // Espaço entre os itens
+  width: 90%;
+  margin: 0 auto;
 
   @media (max-width: 800px) {
     display: block;
@@ -125,7 +141,7 @@ export const ArticleItem = styled.li<ArticleItemProps>`
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: ${({ isLeft }) => (isLeft ? '100%' : '900px')};
+  width: ${({ isLeft }) => (isLeft ? '90%' : '800px')};
   background-image: ${({ urlToImage }) => (urlToImage ? `url(${urlToImage})` : 'none')};
   background-size: cover;
   background-position: center;

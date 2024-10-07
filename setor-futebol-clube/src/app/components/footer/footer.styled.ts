@@ -14,7 +14,7 @@ export const Footer = styled.div`
 `;
 
 export const TitleFooter = styled.h5`
-  color: #feb445!important;
+  color: #e8cf29!important;
   font-weight: 600;
 `;
 

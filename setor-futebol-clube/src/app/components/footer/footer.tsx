@@ -1,6 +1,7 @@
 "use client";
-import * as S from './footer.styled';
+import * as S from './Footer.styled';
 import { SocialIcon } from 'react-social-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Footer () {
     return (

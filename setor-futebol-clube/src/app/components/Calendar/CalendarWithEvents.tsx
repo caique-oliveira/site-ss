@@ -3,19 +3,21 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Calendar, CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import ptBR from '@fullcalendar/core/locales/pt-br'; // Importa a localização em português
+import ptBR from '@fullcalendar/core/locales/pt-br';
+
 
 interface Event {
-  date?: string;   // Data específica para eventos de um único dia
+  date?: string;
   title: string;
-  start?: string;  // Data de início para eventos de múltiplos dias
-  end?: string;    // Data de término para eventos de múltiplos dias
-  color?: string;  // Nova propriedade para cor do evento
+  start?: string;
+  end?: string;
+  color?: string;
 }
 
 const CalendarWithEvents: React.FC = () => {
   const calendarRef = useRef<HTMLDivElement | null>(null);
   const [events, setEvents] = useState<Event[]>([]);
+  const [opacity, setOpacity] = useState(0); // Inicia com opacidade 0
 
   const fetchEvents = async () => {
     try {
@@ -42,22 +44,46 @@ const CalendarWithEvents: React.FC = () => {
         initialView: 'dayGridMonth',
         events: events.map(event => ({
           title: event.title,
-          start: event.start || event.date, // Usa `start` se disponível, caso contrário usa `date`
+          start: event.start || event.date,
           end: event.end,
-          backgroundColor: event.color, // Adiciona a cor de fundo ao evento
-          borderColor: event.color, // Adiciona a cor da borda ao evento
+          backgroundColor: event.color,
+          borderColor: event.color,
         })),
         locale: ptBR,
-        aspectRatio: 2, // Ajuste conforme necessário para seu layout
+        aspectRatio: 2,
       };
-  
+
       const calendar = new Calendar(calendarRef.current, calendarOptions);
       calendar.render();
     }
   }, [events]);
 
+  // Configurar o Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setOpacity(1); // Muda a opacidade para 1 quando o componente entra na tela
+        observer.disconnect(); // Desconecta o observer após a primeira visibilidade
+      }
+    }, { threshold: 0.1 }); // Altera conforme necessário
+
+    if (calendarRef.current) {
+      observer.observe(calendarRef.current); // Observa o elemento
+    }
+
+    return () => {
+      if (calendarRef.current) {
+        observer.unobserve(calendarRef.current); // Limpa o observer ao desmontar
+      }
+    };
+  }, []);
+
   return (
-    <div ref={calendarRef}></div>
+    <div
+      ref={calendarRef}
+      style={{ opacity: opacity, transition: 'opacity 0.5s ease' }} // Efeito suave
+    ></div>
+
   );
 };
 

@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import * as S from './header.styled';
+import * as S from './Header.styled';
 import Image from 'next/image';
+import Link from 'next/link';
 import logo from '../../../../public/assets/logo/logo_ss.png';
 import { SocialIcon } from 'react-social-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faSignIn, faMapLocationDot, faCalendarDays, faCommentsDollar, faFileSignature } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,36 +29,86 @@ export default function Header() {
       <S.GlobalStyle />
       <S.Nav className={hasScrolledDown ? 'fade-in' : ''}>
         <S.NavHeader>
-          <S.LogoWrapper>
-            <Image
-              src={logo}
-              alt="logo setor futebol clube"
-              style={{
-                height: '70px',
-                width: '60px',
-              }}
-            />
-            <S.TitleHeader />
-          </S.LogoWrapper>
+        
+            <S.LogoWrapper>
+            <Link href="/" passHref>
+              <Image
+                src={logo}
+                alt="logo setor futebol clube"
+                style={{
+                  height: '70px',
+                  width: '60px',
+                }}
+              />
+              </Link>
+              <S.TitleHeader />
+            </S.LogoWrapper>
           <S.NavList $isOpen={isOpen}>
             <S.NavItem>
-              <S.NavLink href="#home" active={isActive('/#home')}>
+            <FontAwesomeIcon icon={faHome} 
+              style={{ fontSize: '0.2rem', 
+              color: '#fff',
+              marginRight: '10px' 
+             }} 
+             />
+              <S.NavLink href="/" active={isActive('/#home')}>
                 Home
               </S.NavLink>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink href="#about" active={isActive('/#about')}>
-                Loja
+              <FontAwesomeIcon icon={faCommentsDollar} aria-hidden="true" 
+                 style={{ fontSize: '0.2rem', 
+                  color: '#fff',
+                  marginRight: '10px' 
+                 }} 
+              />
+              <S.NavLink href="/arena">
+                Arena Setor
               </S.NavLink>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink href="#about" active={isActive('/#about')}>
-                Sócio Torcedor
+            <FontAwesomeIcon icon={faFileSignature} aria-hidden="true"
+               style={{ fontSize: '0.2rem', 
+                color: '#fff',
+                marginRight: '10px' 
+               }} 
+            />
+              <S.NavLink href="/projetos">
+                Projetos
               </S.NavLink>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink href="#services" active={isActive('/#services')}>
-                Comprar ingressos
+            <FontAwesomeIcon icon={faCalendarDays} aria-hidden="true"
+              style={{ fontSize: '0.2rem', 
+                color: '#fff',
+                marginRight: '10px' 
+              }} 
+             /> 
+              <S.NavLink href="/calendarios">
+                Calendários
+              </S.NavLink>
+            </S.NavItem>
+            <S.NavItem>
+
+            <FontAwesomeIcon icon={faMapLocationDot} aria-hidden="true"
+              style={{ fontSize: '0.2rem', 
+                color: '#fff',
+                marginRight: '10px' 
+              }} 
+             />
+              <S.NavLink href="/contatos">
+                Contatos
+              </S.NavLink>
+            </S.NavItem>
+            <S.NavItem>
+            <FontAwesomeIcon icon={faSignIn} aria-hidden="true"
+              style={{ fontSize: '0.2rem', 
+              color: '#fff',
+              marginRight: '10px' 
+             }} 
+             />
+              <S.NavLink href="/login">
+                Login
               </S.NavLink>
             </S.NavItem>
             <S.ContainerSocialMedia>
@@ -90,9 +143,7 @@ export default function Header() {
                 }}
               />
             </S.ContainerSocialMedia>
-            <S.BtnNoticiasMobile>Notícias</S.BtnNoticiasMobile>
           </S.NavList>
-          <S.BtnNoticias>Notícias</S.BtnNoticias>
           <S.NavBtn onClick={toggleMenu}>
             <S.NavBtnLabel $isOpen={isOpen}>
               <S.NavBtnSpan className={isOpen ? 'bar1' : ''} />

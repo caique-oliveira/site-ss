@@ -1,12 +1,13 @@
-'use client';
+'use client'
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import * as S from './carousel.styled';
+import * as S from './Carousel.styled';
 
 const Carousel: React.FC = (): JSX.Element => {
   const [current, setCurrent] = useState<number>(0);
-  
+  const [isVisible, setIsVisible] = useState<boolean>(false); // Estado para controle da visibilidade
+
   const slides = [
     {
       image: "https://sampi.net.br/dir-arquivo-imagem/2024/08/659e64f6a86592578d0b618fddb4c428.jpeg",
@@ -29,60 +30,46 @@ const Carousel: React.FC = (): JSX.Element => {
   const bubblesRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    setIsVisible(false); // Esconde os textos ao mudar de slide
     const intervalId = setInterval(nextImage, 10000); // Trocar a cada 10 segundos
 
-    return () => clearInterval(intervalId); // Limpar o intervalo quando o componente desmontar
+    return () => clearInterval(intervalId);
   }, [current]);
 
   useEffect(() => {
-    if (bubblesRef.current[current]) {
-      bubblesRef.current[current].style.borderColor = "white";
-    }
+    const timeoutId = setTimeout(() => {
+      setIsVisible(true);
+    }, 700);
+
+    return () => clearTimeout(timeoutId);
   }, [current]);
 
   const nextImage = () => {
     let newIndex = (current === slides.length - 1 ? 0 : current + 1);
-    if (imageSlidesRef.current[current]) {
-      imageSlidesRef.current[current].className = "slide-image rightOut";
-    }
-    if (imageSlidesRef.current[newIndex]) {
-      imageSlidesRef.current[newIndex].className = "slide-image rightIn";
-    }
-    updateBubbles(newIndex);
+    transitionSlides(current, newIndex);
     setCurrent(newIndex);
   };
 
   const prevImage = () => {
     let newIndex = (current === 0 ? slides.length - 1 : current - 1);
-    if (imageSlidesRef.current[current]) {
-      imageSlidesRef.current[current].className = "slide-image leftOut";
+    transitionSlides(current, newIndex);
+    setCurrent(newIndex);
+  };
+
+  const transitionSlides = (oldIndex: number, newIndex: number) => {
+    if (imageSlidesRef.current[oldIndex]) {
+      imageSlidesRef.current[oldIndex].className = "slide-image leftOut";
     }
     if (imageSlidesRef.current[newIndex]) {
       imageSlidesRef.current[newIndex].className = "slide-image leftIn";
     }
     updateBubbles(newIndex);
-    setCurrent(newIndex);
   };
 
   const jumpImage = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const jumpIndex = parseInt(e.currentTarget.id);
     if (jumpIndex === current) return;
-    if (jumpIndex - current >= 0) {
-      if (imageSlidesRef.current[current]) {
-        imageSlidesRef.current[current].className = "slide-image leftOut";
-      }
-      if (imageSlidesRef.current[jumpIndex]) {
-        imageSlidesRef.current[jumpIndex].className = "slide-image leftIn";
-      }
-    } else {
-      if (imageSlidesRef.current[current]) {
-        imageSlidesRef.current[current].className = "slide-image rightOut";
-      }
-      if (imageSlidesRef.current[jumpIndex]) {
-        imageSlidesRef.current[jumpIndex].className = "slide-image rightIn";
-      }
-    }
-    updateBubbles(jumpIndex);
+    transitionSlides(current, jumpIndex);
     setCurrent(jumpIndex);
   };
 
@@ -112,11 +99,11 @@ const Carousel: React.FC = (): JSX.Element => {
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             {index === current && (
-              <div className="overlay-container">
-                <S.OverlayText>{slide.text}</S.OverlayText>
-                <S.OverlaySubText>{slide.subText}</S.OverlaySubText>
-                <S.LinkVermais href="#" className="carousel-link">Mais detalhes</S.LinkVermais>
-              </div>
+              <S.OverlayContainer>
+                <S.OverlayText isVisible={isVisible}>{slide.text}</S.OverlayText>
+                <S.OverlaySubText isVisible={isVisible}>{slide.subText}</S.OverlaySubText>
+                <S.LinkVermais isVisible={isVisible} href="#">Mais detalhes</S.LinkVermais>
+              </S.OverlayContainer>
             )}
           </S.SlideImage>
         ))}

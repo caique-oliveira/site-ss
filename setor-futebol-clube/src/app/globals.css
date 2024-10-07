@@ -98,7 +98,7 @@ body {
 }
 
 button.react-calendar__navigation__label {
-  background: #feb445;
+  background: #e8cf29;
 }
 a {
   color: inherit;
@@ -111,30 +111,31 @@ a {
   font-weight: bold;
 }
 a.fc-col-header-cell-cushion {
-  color: #feb445;
+  color: #e8cf29;
 }
 .fc .fc-daygrid-day-number {
-  color: #feb445;
+  color: #e8cf29;
 }
 button.fc-today-button.fc-button.fc-button-primary {
-  background: #feb445;
+  background: #e8cf29;
   border: none;
 }
 .fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
-  background: #feb445;
+  background: #e8cf29;
   border: none;
   margin: 0px 20px;
 }
 .fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
-  background: #feb445;
+  background: #e8cf29;
   border: none;
 }
 .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
   margin-top: 15px;
   margin-bottom: 15px;
+  background: #000;
 }
 .fc .fc-toolbar-title {
-  color: #feb445;
+  color: #e8cf29;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -142,7 +143,7 @@ button.fc-today-button.fc-button.fc-button-primary {
   text-decoration: none;
 }
 .fc .fc-daygrid-day-number {
-  color: #feb445;
+  color: #e8cf29;
   text-decoration: none;
 }
 /* Estilo base para o FullCalendar */
@@ -151,7 +152,7 @@ button.fc-today-button.fc-button.fc-button-primary {
   margin: 0 auto;
 }
 a.fc-event.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygrid-block-event.fc-h-event {
-  border: #feb445;
+  border: #e8cf29;
 }
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
@@ -262,4 +263,37 @@ a.fc-event.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygr
     color: #484848;
     text-align: center;
   }
+}
+.post-tabela-classificacao {
+  margin: 20px;
+}
+
+.post-tabela-classificacao__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.post-tabela-classificacao__table th,
+.post-tabela-classificacao__table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+  margin-bottom: 15px;
+  background: #000;
+  max-width: 1200px;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+ul li a {
+  &:hover {
+    color: #e8cf29 !important;
+  }
+}
+label {
+  color: #e8cf29;
+  font-weight: 700;
 }

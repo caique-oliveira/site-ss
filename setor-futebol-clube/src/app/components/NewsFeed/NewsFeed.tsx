@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   ArticleList,
@@ -65,21 +65,20 @@ const exampleArticles: Article[] = [
 const NewsFeed: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>(exampleArticles);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Simula o carregamento de dados
     setTimeout(() => {
-      setArticles([...exampleArticles, ...exampleArticles]); // Duplicando para testar o carrossel
-    }, 1000); // Simula um atraso
+      setArticles([...exampleArticles, ...exampleArticles]);
+    }, 1000);
   }, []);
 
   useEffect(() => {
-    // Configura o intervalo para mudar de notícias a cada 10 segundos
     const interval = setInterval(() => {
       handleNext();
-    }, 10000); // 10 segundos
+    }, 10000);
 
-    // Limpeza do intervalo quando o componente for desmontado
     return () => clearInterval(interval);
   }, [currentIndex, articles.length]);
 
@@ -95,15 +94,32 @@ const NewsFeed: React.FC = () => {
     articles.slice(0, Math.max(0, currentIndex + 3 - articles.length))
   );
 
+  const handleScroll = () => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        setIsVisible(true);
+        window.removeEventListener('scroll', handleScroll); // Remove o listener após a primeira rolagem
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <Container>
+    <Container ref={containerRef} className={isVisible ? 'slide-up' : ''}>
       <TitleParceiros>Últimas Notícias</TitleParceiros>
       <ArticleList>
         {visibleArticles.map((article, index) => (
           <ArticleItem
             key={index}
             isLeft={index === 0}
-            urlToImage={article.urlToImage} // Passa a URL da imagem para o estilo
+            urlToImage={article.urlToImage}
           >
             {article.urlToVideo ? (
               <ArticleVideo src={article.urlToVideo} allowFullScreen />

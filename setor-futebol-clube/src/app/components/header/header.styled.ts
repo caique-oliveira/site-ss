@@ -47,7 +47,7 @@ export const Nav = styled.nav`
   }
 `;
 export const TitleHeader = styled.h2`
-  color:#feb445;
+  color:#e8cf29;
   margin-left: 10px;
   padding-top: 10px;
   white-space: nowrap;
@@ -70,7 +70,7 @@ export const TitleHeader = styled.h2`
 
   &::after {
     content: ' Social';
-    color: #feb445;
+    color: #e8cf29;
   }
 
   @media (max-width: 768px) {
@@ -110,10 +110,10 @@ export const NavList = styled.ul<{ $isOpen: boolean }>`
   justify-content: flex-end;
   margin-left: 2rem;
 
-  @media (max-width: 980px) {
+  @media (max-width: 1090px) {
     gap: 1rem;
     margin-left: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -126,7 +126,7 @@ export const NavList = styled.ul<{ $isOpen: boolean }>`
     position: absolute;
     top: 70px;
     left: 0;
-    height: ${({ $isOpen }) => ($isOpen ? 'calc(80vh - 190px)' : '0')};
+    height: ${({ $isOpen }) => ($isOpen ? 'calc(125vh - 190px)' : '0')};
     overflow: hidden;
     padding: 10px 0;
     transition: height 0.3s ease-in;
@@ -169,67 +169,6 @@ export const ContainerSocialMedia = styled.div`
   @media (max-width: 768px) {
     display: block;
     padding-left: 2%;
-  }
-`;
-
-export const BtnNoticias = styled.a`
-  width: 220px;
-  height: 50px;
-  text-decoration: none;
-  padding: 15px 65px;
-  line-height: 20px;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
-  border-radius: 2px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  transition: .5s;
-  color: #FFFFFF;
-  background-color:#feb445;
-  border-color:#feb445;
-
-  &:hover {
-    background: #fff;
-    color: #000;
-  }
-  @media (max-width: 1005px) {
-    width: 150px;
-    height: 50px;
-    padding: 15px 40px;
-    font-size: 0.8rem;
-  }
-  @media (max-width: 768px) {
-    display: none;
-    width: 100%;
-    margin-top: 10px;
-    text-align: center;
-  }
-`;
-
-export const BtnNoticiasMobile = styled.a`
-  display: none;
-  text-decoration: none;
-
-  @media (max-width: 768px) {
-    margin: 0 auto;
-    display: block;
-    width: 90%;
-    margin-top: 10px;
-    text-align: center;
-    background:#feb445;
-    padding: 25px 30px;
-    font-size: 20px;
-    line-height: 20px;
-    color: #FFF;
-    font-weight: 900;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-      background: #fff;
-      color: #000;
-    }
   }
 `;
 

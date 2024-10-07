@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import StyledJsxRegistry from './registry'
+import StyledJsxRegistry from './registry';
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import WhatsApp from "./Components/WhatsApp/WhatsApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +21,10 @@ export default function RootLayout({
   return (
     <html>
       <body>
+        <Header />
         <StyledJsxRegistry>{children}</StyledJsxRegistry>
+        <WhatsApp />
+        <Footer />
       </body>
     </html>
   )

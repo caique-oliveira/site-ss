@@ -1,4 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+// Define a animação para deslizamento da esquerda
+const slideInFromLeft = keyframes`
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   position: relative;
@@ -8,6 +20,13 @@ export const Container = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+export const ContainerXXL = styled.div`
+  margin-top: 15px;
+  &.slide-in-left {
+    animation: ${slideInFromLeft} 0.6s ease-out forwards; // Animação para o ContainerXXL
+  }
 `;
 
 export const PlayButton = styled.button`
@@ -68,18 +87,20 @@ export const PlayIcon = styled.span`
   border-top: 22px solid transparent;
   border-bottom: 22px solid transparent;
 `;
+
 export const TitleInstitucional = styled.h1`
-  color: #feb445!important;
+  color: #e8cf29!important;
   font-weight: 700 !important;
   font-family: "Montserrat", system-ui;
 `;
 
 export const BtnInstitucional = styled.button`
-  background: #feb445!important;
-  border: #feb445!important;
+  background: #e8cf29!important;
+  border: #e8cf29!important;
   font-size: 20px;
   font-weight: bold;
 `;
+
 export const BgDark = styled.div`
   background: #000;
 `;

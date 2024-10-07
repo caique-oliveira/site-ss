@@ -11,7 +11,7 @@
     { 
       "date": "2024-09-18",
       "title": "Jogo do Flamengo X Peñarol às 19:00h",
-      "color": "orange"
+      "color": "#e8cf29"
     },
     {
       "title": "Festa Junina",
@@ -19,6 +19,129 @@
       "end": "2024-09-20",
       "color": "#fc0f03"
     }
+  ],
+  "matches": [
+    {
+      "id": 1,
+      "gameRound": "27° RODADA",
+      "name1": "PAY",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2019/05/29/Paysandu.svg",
+      "name2": "SPT",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2018/03/11/sport.svg",
+      "location": "Heriberto Hulse",
+      "date": "2024-09-30T18:00:00Z"
+    },
+    {
+      "id": 2,
+      "name1": "SAN",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2018/03/12/santos.svg",
+      "name2": "NOV",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2019/01/08/Novohorizontino.svg",
+      "location": "Morumbi",
+      "date": "2024-10-01T20:00:00Z"
+    },
+    {
+      "id": 3,
+      "name1": "BRU",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2020/09/06/brusque.svg",
+      "name2": "AMA",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2024/08/20/Amazonas_2024.svg",
+      "location": "Maracanã",
+      "date": "2024-10-02T21:00:00Z"
+    },
+    {
+      "id": 4,
+      "gameRound": "28° RODADA",
+      "name1": "AC",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2022/01/20/Athletic_Club-mineiro.svg",
+      "name2": "AFC",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2019/01/08/Ferroviaria_Araraquara.svg",
+      "date": "2024-10-03T19:00:00Z"
+    },
+    {
+      "id": 5,
+      "name1": "GRE",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2018/03/12/gremio.svg",
+      "name2": "CRI",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2024/03/28/Criciuma-2024.svg",
+      "location": "Arena do Grêmio",
+      "date": "2024-10-04T20:00:00Z"
+    },
+    {
+      "id": 6,
+      "name1": "BRA",
+      "homeTeam": "https://s.sde.globo.com/media/organizations/2021/06/28/bragantino.svg",
+      "name2": "INT",
+      "awayTeam": "https://s.sde.globo.com/media/organizations/2018/03/11/internacional.svg",
+      "date": "2024-10-05T21:00:00Z"
+    }
+  ],
+ "teams": [
+    {
+      "position": 1,
+      "name": "Botafogo",
+      "points": 53,
+      "lastGames": "rgsgg"
+    },
+    {
+      "position": 2,
+      "name": "Palmeiras",
+      "points": 50,
+      "lastGames": "sgggg"
+    },
+    {
+      "position": 3,
+      "name": "Fortaleza",
+      "points": 49,
+      "lastGames": "gggrs"
+    },
+    {
+      "position": 4,
+      "name": "Flamengo",
+      "points": 45,
+      "lastGames": "srgrs"
+    },
+    {
+      "position": 5,
+      "name": "São Paulo",
+      "points": 44,
+      "lastGames": "grgrg"
+    },
+    {
+      "position": 6,
+      "name": "Bahia",
+      "points": 42,
+      "lastGames": "ggsrg"
+    },
+    {
+      "position": 7,
+      "name": "Inter",
+      "points": 42,
+      "lastGames": "rgsgg"
+    },
+    {
+      "position": 8,
+      "name": "Santos",
+      "points": 50,
+      "lastGames": "sgggg"
+    },
+    {
+      "position": 9,
+      "name": "Gremio",
+      "points": 39,
+      "lastGames": "rgsgg"
+    },
+    {
+      "position": 10,
+      "name": "Vasco",
+      "points": 38,
+      "lastGames": "sgggg"
+    },
+    {
+      "position": 11,
+      "name": "Atlético",
+      "points": 37,
+      "lastGames": "rgsgg"
+    }
   ]
 }
-
